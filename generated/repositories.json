@@ -1,0 +1,586 @@
+{
+  "generatedAt": "2026-08-01T07:21:10.504Z",
+  "owner": "Rustapex",
+  "source": "https://api.github.com/users/Rustapex/repos",
+  "repositories": [
+    {
+      "id": 1167194467,
+      "name": "JAVA",
+      "fullName": "Rustapex/JAVA",
+      "htmlUrl": "https://github.com/Rustapex/JAVA",
+      "description": "inflearn java study",
+      "homepage": null,
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "defaultBranch": "main",
+      "primaryLanguage": "Java",
+      "languages": [
+        {
+          "name": "Java",
+          "bytes": 748486,
+          "percentage": 100
+        }
+      ],
+      "topics": [],
+      "stars": 0,
+      "forks": 0,
+      "createdAt": "2026-02-26T03:16:01Z",
+      "updatedAt": "2026-08-01T07:06:51Z",
+      "pushedAt": "2026-04-29T01:22:43Z",
+      "readme": null,
+      "license": null
+    },
+    {
+      "id": 1211063248,
+      "name": "web",
+      "fullName": "Rustapex/web",
+      "htmlUrl": "https://github.com/Rustapex/web",
+      "description": "servlet & JSP, database, front-end",
+      "homepage": null,
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "defaultBranch": "master",
+      "primaryLanguage": "Java",
+      "languages": [
+        {
+          "name": "Java",
+          "bytes": 655120,
+          "percentage": 85.2
+        },
+        {
+          "name": "HTML",
+          "bytes": 110661,
+          "percentage": 14.4
+        },
+        {
+          "name": "CSS",
+          "bytes": 3021,
+          "percentage": 0.4
+        }
+      ],
+      "topics": [],
+      "stars": 0,
+      "forks": 0,
+      "createdAt": "2026-04-15T03:08:32Z",
+      "updatedAt": "2026-08-01T07:06:23Z",
+      "pushedAt": "2026-04-29T00:22:10Z",
+      "readme": null,
+      "license": null
+    },
+    {
+      "id": 1256625847,
+      "name": "spring-legacy",
+      "fullName": "Rustapex/spring-legacy",
+      "htmlUrl": "https://github.com/Rustapex/spring-legacy",
+      "description": "스프링 레거시 연습",
+      "homepage": null,
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "defaultBranch": "main",
+      "primaryLanguage": "Java",
+      "languages": [
+        {
+          "name": "Java",
+          "bytes": 274911,
+          "percentage": 100
+        }
+      ],
+      "topics": [],
+      "stars": 0,
+      "forks": 0,
+      "createdAt": "2026-06-02T00:34:32Z",
+      "updatedAt": "2026-08-01T07:06:14Z",
+      "pushedAt": "2026-06-02T01:59:24Z",
+      "readme": null,
+      "license": null
+    },
+    {
+      "id": 1199255773,
+      "name": "DATABASE",
+      "fullName": "Rustapex/DATABASE",
+      "htmlUrl": "https://github.com/Rustapex/DATABASE",
+      "description": "DB STUDY",
+      "homepage": null,
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "defaultBranch": "main",
+      "primaryLanguage": "PLSQL",
+      "languages": [
+        {
+          "name": "PLSQL",
+          "bytes": 8660,
+          "percentage": 100
+        }
+      ],
+      "topics": [],
+      "stars": 0,
+      "forks": 0,
+      "createdAt": "2026-04-02T07:16:00Z",
+      "updatedAt": "2026-08-01T07:06:01Z",
+      "pushedAt": "2026-06-02T02:31:29Z",
+      "readme": null,
+      "license": null
+    },
+    {
+      "id": 1242229456,
+      "name": "JAVA2",
+      "fullName": "Rustapex/JAVA2",
+      "htmlUrl": "https://github.com/Rustapex/JAVA2",
+      "description": null,
+      "homepage": null,
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "defaultBranch": "main",
+      "primaryLanguage": "Java",
+      "languages": [
+        {
+          "name": "Java",
+          "bytes": 498573,
+          "percentage": 100
+        }
+      ],
+      "topics": [],
+      "stars": 0,
+      "forks": 0,
+      "createdAt": "2026-05-18T08:34:37Z",
+      "updatedAt": "2026-08-01T07:05:48Z",
+      "pushedAt": "2026-06-02T02:34:26Z",
+      "readme": null,
+      "license": null
+    },
+    {
+      "id": 1262389731,
+      "name": "spring-boot-practice",
+      "fullName": "Rustapex/spring-boot-practice",
+      "htmlUrl": "https://github.com/Rustapex/spring-boot-practice",
+      "description": "스프링 부트 연습",
+      "homepage": null,
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "defaultBranch": "main",
+      "primaryLanguage": "Java",
+      "languages": [
+        {
+          "name": "Java",
+          "bytes": 560732,
+          "percentage": 72.9
+        },
+        {
+          "name": "HTML",
+          "bytes": 207986,
+          "percentage": 27
+        },
+        {
+          "name": "CSS",
+          "bytes": 640,
+          "percentage": 0.1
+        },
+        {
+          "name": "JavaScript",
+          "bytes": 76,
+          "percentage": 0
+        }
+      ],
+      "topics": [],
+      "stars": 0,
+      "forks": 0,
+      "createdAt": "2026-06-07T23:56:30Z",
+      "updatedAt": "2026-08-01T07:05:31Z",
+      "pushedAt": "2026-06-10T08:47:45Z",
+      "readme": null,
+      "license": null
+    },
+    {
+      "id": 1316283187,
+      "name": "jpa-prac-07063",
+      "fullName": "Rustapex/jpa-prac-07063",
+      "htmlUrl": "https://github.com/Rustapex/jpa-prac-07063",
+      "description": null,
+      "homepage": null,
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "defaultBranch": "main",
+      "primaryLanguage": "Java",
+      "languages": [
+        {
+          "name": "Java",
+          "bytes": 9221,
+          "percentage": 98.6
+        },
+        {
+          "name": "HTML",
+          "bytes": 134,
+          "percentage": 1.4
+        }
+      ],
+      "topics": [],
+      "stars": 0,
+      "forks": 0,
+      "createdAt": "2026-07-29T15:24:40Z",
+      "updatedAt": "2026-08-01T07:03:51Z",
+      "pushedAt": "2026-07-29T15:52:31Z",
+      "readme": null,
+      "license": null
+    },
+    {
+      "id": 1316283101,
+      "name": "jpa-prac-0706",
+      "fullName": "Rustapex/jpa-prac-0706",
+      "htmlUrl": "https://github.com/Rustapex/jpa-prac-0706",
+      "description": null,
+      "homepage": null,
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "defaultBranch": "main",
+      "primaryLanguage": "Java",
+      "languages": [
+        {
+          "name": "Java",
+          "bytes": 10726,
+          "percentage": 94.3
+        },
+        {
+          "name": "HTML",
+          "bytes": 649,
+          "percentage": 5.7
+        }
+      ],
+      "topics": [],
+      "stars": 0,
+      "forks": 0,
+      "createdAt": "2026-07-29T15:24:34Z",
+      "updatedAt": "2026-08-01T07:03:43Z",
+      "pushedAt": "2026-07-29T15:52:29Z",
+      "readme": null,
+      "license": null
+    },
+    {
+      "id": 1316282933,
+      "name": "demo-docker-backup",
+      "fullName": "Rustapex/demo-docker-backup",
+      "htmlUrl": "https://github.com/Rustapex/demo-docker-backup",
+      "description": null,
+      "homepage": null,
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "defaultBranch": "main",
+      "primaryLanguage": "Java",
+      "languages": [
+        {
+          "name": "Java",
+          "bytes": 896,
+          "percentage": 88.6
+        },
+        {
+          "name": "Dockerfile",
+          "bytes": 115,
+          "percentage": 11.4
+        }
+      ],
+      "topics": [],
+      "stars": 0,
+      "forks": 0,
+      "createdAt": "2026-07-29T15:24:23Z",
+      "updatedAt": "2026-08-01T07:03:35Z",
+      "pushedAt": "2026-07-29T15:52:26Z",
+      "readme": "��#\u0000 \u0000s\u0000p\u0000r\u0000i\u0000n\u0000g\u0000A\u0000p\u0000p\u0000D\u0000o\u0000c\u0000k\u0000e\u0000r\u0000\r\u0000\n\u0000#\u0000 \u0000s\u0000p\u0000r\u0000i\u0000n\u0000g\u0000A\u0000p\u0000p\u0000D\u0000o\u0000c\u0000k\u0000e\u0000r\u0000\r\u0000\n\u0000#\u0000 \u0000s\u0000p\u0000r\u0000i\u0000n\u0000g\u0000A\u0000p\u0000p\u0000D\u0000o\u0000c\u0000k\u0000e\u0000r\u0000\r\u0000\n\u0000",
+      "license": null
+    },
+    {
+      "id": 1316282852,
+      "name": "hi-deploy-backup",
+      "fullName": "Rustapex/hi-deploy-backup",
+      "htmlUrl": "https://github.com/Rustapex/hi-deploy-backup",
+      "description": null,
+      "homepage": null,
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "defaultBranch": "main",
+      "primaryLanguage": "Java",
+      "languages": [
+        {
+          "name": "Java",
+          "bytes": 1267,
+          "percentage": 100
+        }
+      ],
+      "topics": [],
+      "stars": 0,
+      "forks": 0,
+      "createdAt": "2026-07-29T15:24:18Z",
+      "updatedAt": "2026-08-01T07:03:26Z",
+      "pushedAt": "2026-07-29T15:52:24Z",
+      "readme": "��#\u0000 \u0000a\u0000w\u0000s\u0000-\u0000e\u0000c\u00002\u0000-\u0000d\u0000e\u0000p\u0000l\u0000o\u0000y\u0000\r\u0000\n\u0000#\u0000 \u0000h\u0000e\u0000l\u0000l\u0000o\u0000D\u0000e\u0000p\u0000l\u0000o\u0000y\u0000\r\u0000\n\u0000",
+      "license": null
+    },
+    {
+      "id": 1314390268,
+      "name": "Kubernates",
+      "fullName": "Rustapex/Kubernates",
+      "htmlUrl": "https://github.com/Rustapex/Kubernates",
+      "description": null,
+      "homepage": null,
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "defaultBranch": "main",
+      "primaryLanguage": "Java",
+      "languages": [
+        {
+          "name": "Java",
+          "bytes": 834,
+          "percentage": 88.6
+        },
+        {
+          "name": "Dockerfile",
+          "bytes": 107,
+          "percentage": 11.4
+        }
+      ],
+      "topics": [],
+      "stars": 0,
+      "forks": 0,
+      "createdAt": "2026-07-28T00:33:38Z",
+      "updatedAt": "2026-08-01T07:03:19Z",
+      "pushedAt": "2026-07-28T05:24:33Z",
+      "readme": "��#\u0000 \u0000k\u0000u\u0000b\u0000e\u0000\r\u0000\n\u0000",
+      "license": null
+    },
+    {
+      "id": 1284614206,
+      "name": "cloud4cicd3",
+      "fullName": "Rustapex/cloud4cicd3",
+      "htmlUrl": "https://github.com/Rustapex/cloud4cicd3",
+      "description": null,
+      "homepage": null,
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "defaultBranch": "main",
+      "primaryLanguage": "Java",
+      "languages": [
+        {
+          "name": "Java",
+          "bytes": 1063,
+          "percentage": 62.5
+        },
+        {
+          "name": "Dockerfile",
+          "bytes": 366,
+          "percentage": 21.5
+        },
+        {
+          "name": "HTML",
+          "bytes": 272,
+          "percentage": 16
+        }
+      ],
+      "topics": [],
+      "stars": 0,
+      "forks": 0,
+      "createdAt": "2026-06-30T03:24:46Z",
+      "updatedAt": "2026-08-01T07:03:09Z",
+      "pushedAt": "2026-06-30T06:11:25Z",
+      "readme": "��#\u0000 \u0000c\u0000l\u0000o\u0000u\u0000d\u00004\u0000c\u0000i\u0000c\u0000d\u00003\u0000\r\u0000\n\u0000",
+      "license": null
+    },
+    {
+      "id": 1284574323,
+      "name": "cloud4cicd2",
+      "fullName": "Rustapex/cloud4cicd2",
+      "htmlUrl": "https://github.com/Rustapex/cloud4cicd2",
+      "description": null,
+      "homepage": null,
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "defaultBranch": "main",
+      "primaryLanguage": "Java",
+      "languages": [
+        {
+          "name": "Java",
+          "bytes": 867,
+          "percentage": 85.3
+        },
+        {
+          "name": "HTML",
+          "bytes": 150,
+          "percentage": 14.7
+        }
+      ],
+      "topics": [],
+      "stars": 0,
+      "forks": 0,
+      "createdAt": "2026-06-30T02:11:34Z",
+      "updatedAt": "2026-08-01T07:02:56Z",
+      "pushedAt": "2026-06-30T02:31:36Z",
+      "readme": "��#\u0000 \u0000c\u0000l\u0000o\u0000u\u0000d\u00004\u0000c\u0000i\u0000c\u0000d\u00002\u0000\r\u0000\n\u0000",
+      "license": null
+    },
+    {
+      "id": 1284529602,
+      "name": "cloud4_cicd1",
+      "fullName": "Rustapex/cloud4_cicd1",
+      "htmlUrl": "https://github.com/Rustapex/cloud4_cicd1",
+      "description": null,
+      "homepage": null,
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "defaultBranch": "main",
+      "primaryLanguage": "Java",
+      "languages": [
+        {
+          "name": "Java",
+          "bytes": 1047,
+          "percentage": 100
+        }
+      ],
+      "topics": [],
+      "stars": 0,
+      "forks": 0,
+      "createdAt": "2026-06-30T00:45:25Z",
+      "updatedAt": "2026-08-01T07:02:14Z",
+      "pushedAt": "2026-06-30T01:21:11Z",
+      "readme": "��#\u0000 \u0000c\u0000l\u0000o\u0000u\u0000d\u00004\u0000_\u0000c\u0000i\u0000c\u0000d\u00001\u0000\r\u0000\n\u0000",
+      "license": null
+    },
+    {
+      "id": 1224102780,
+      "name": "JavaServletMVC-Project",
+      "fullName": "Rustapex/JavaServletMVC-Project",
+      "htmlUrl": "https://github.com/Rustapex/JavaServletMVC-Project",
+      "description": "mvc pattern , servlet, java, jsp, jQuery, css etc",
+      "homepage": null,
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "defaultBranch": "main",
+      "primaryLanguage": "Java",
+      "languages": [
+        {
+          "name": "Java",
+          "bytes": 768297,
+          "percentage": 86.2
+        },
+        {
+          "name": "CSS",
+          "bytes": 106417,
+          "percentage": 11.9
+        },
+        {
+          "name": "JavaScript",
+          "bytes": 16960,
+          "percentage": 1.9
+        }
+      ],
+      "topics": [],
+      "stars": 0,
+      "forks": 0,
+      "createdAt": "2026-04-29T00:55:19Z",
+      "updatedAt": "2026-08-01T06:58:53Z",
+      "pushedAt": "2026-05-13T14:45:09Z",
+      "readme": null,
+      "license": null
+    },
+    {
+      "id": 1164520137,
+      "name": "FrontProject",
+      "fullName": "Rustapex/FrontProject",
+      "htmlUrl": "https://github.com/Rustapex/FrontProject",
+      "description": "0223~ 0226 front project",
+      "homepage": null,
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "defaultBranch": "main",
+      "primaryLanguage": "HTML",
+      "languages": [
+        {
+          "name": "HTML",
+          "bytes": 206207,
+          "percentage": 51.5
+        },
+        {
+          "name": "JavaScript",
+          "bytes": 138374,
+          "percentage": 34.5
+        },
+        {
+          "name": "CSS",
+          "bytes": 56136,
+          "percentage": 14
+        }
+      ],
+      "topics": [],
+      "stars": 0,
+      "forks": 0,
+      "createdAt": "2026-02-23T07:13:12Z",
+      "updatedAt": "2026-08-01T06:57:26Z",
+      "pushedAt": "2026-02-25T16:42:45Z",
+      "readme": null,
+      "license": null
+    },
+    {
+      "id": 1319046604,
+      "name": "repolio",
+      "fullName": "Rustapex/repolio",
+      "htmlUrl": "https://github.com/Rustapex/repolio",
+      "description": "GitHub repository index and portfolio for Rustapex",
+      "homepage": null,
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "defaultBranch": "main",
+      "primaryLanguage": null,
+      "languages": [],
+      "topics": [],
+      "stars": 0,
+      "forks": 0,
+      "createdAt": "2026-08-01T06:52:10Z",
+      "updatedAt": "2026-08-01T06:56:51Z",
+      "pushedAt": "2026-08-01T06:56:43Z",
+      "readme": "# Repolio\n\nRustapex 계정의 공개 GitHub 저장소를 한눈에 탐색하기 위한 저장소 인덱스이자 포트폴리오 사이트입니다.\n\n완성된 사이트는 GitHub Pages의 `https://rustapex.github.io/repolio/`에서 제공할 예정입니다.\n\n## 확정된 방향\n\n- 공개 저장소만 GitHub API로 자동 수집합니다.\n- 저장소 이름, 설명, 언어, 상태, 수정일과 README 미리보기는 자동으로 갱신합니다.\n- 사용자가 직접 정하는 그룹만 `groups.json`에서 관리합니다.\n- 라이트·다크 테마와 반응형 화면을 제공합니다.\n- GitHub Actions가 6시간마다 동기화하며 필요할 때 수동으로도 실행할 수 있습니다.\n- React, Vite, TypeScript와 GitHub Pages를 사용합니다.\n\n## 문서\n\n- [구현 계획](docs/implementation-plan.md)\n\n현재 저장소에는 구현 전 합의한 계획과 로컬 작업 제외 규칙만 포함되어 있습니다. 애플리케이션 구현은 후속 브랜치와 Pull Request로 진행합니다.\n",
+      "license": null
+    },
+    {
+      "id": 1191206846,
+      "name": "acorncampus_ATM",
+      "fullName": "Rustapex/acorncampus_ATM",
+      "htmlUrl": "https://github.com/Rustapex/acorncampus_ATM",
+      "description": "java project atm",
+      "homepage": null,
+      "visibility": "public",
+      "fork": true,
+      "archived": false,
+      "defaultBranch": "main",
+      "primaryLanguage": "Java",
+      "languages": [
+        {
+          "name": "Java",
+          "bytes": 57158,
+          "percentage": 100
+        }
+      ],
+      "topics": [],
+      "stars": 0,
+      "forks": 0,
+      "createdAt": "2026-03-25T02:42:09Z",
+      "updatedAt": "2026-03-28T13:02:54Z",
+      "pushedAt": "2026-03-28T13:02:51Z",
+      "readme": null,
+      "license": null
+    }
+  ],
+  "warnings": []
+}
