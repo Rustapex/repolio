@@ -1,0 +1,60 @@
+# Dependencies and build output
+node_modules/
+dist/
+dist-ssr/
+.vite/
+coverage/
+*.tsbuildinfo
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Local environment
+.env
+.env.*
+!.env.example
+*.local
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# Visual Studio Code
+.vscode/
+
+# Obsidian
+.obsidian/
+
+# Local AI agent and workspace state
+.agents/
+**/.agents/
+.codex/
+**/.codex/
+.claude/
+**/.claude/
+.omc/
+**/.omc/
+.omx/
+**/.omx/
+AGENTS.md
+AGENTS.local.md
+CLAUDE.md
+CLAUDE.local.md
+
+# Test and browser artifacts
+playwright-report/
+test-results/
+blob-report/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+Desktop.ini
