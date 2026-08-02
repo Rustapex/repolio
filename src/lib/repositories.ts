@@ -53,7 +53,7 @@ export function filterRepositories(
   return [...filtered].sort((left, right) => {
     if (filters.sort === 'name') return left.name.localeCompare(right.name, 'ko')
     if (filters.sort === 'stars') return right.stars - left.stars
-    return Date.parse(right.updatedAt) - Date.parse(left.updatedAt)
+    return Date.parse(right.pushedAt || right.updatedAt) - Date.parse(left.pushedAt || left.updatedAt)
   })
 }
 
