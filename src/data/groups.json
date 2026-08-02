@@ -140,7 +140,7 @@
     "vite",
     "githubApi"
   ],
-  "AcornProject": [
+  "ebook-library-backend": [
     "team",
     "acorn",
     "react",
@@ -158,7 +158,7 @@
     "awsS3",
     "ebookRental"
   ],
-  "ABCProjectFront": [
+  "ebook-library-frontend": [
     "team",
     "acorn",
     "react",
