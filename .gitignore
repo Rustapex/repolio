@@ -44,7 +44,6 @@ out/
 **/.omc/
 .omx/
 **/.omx/
-AGENTS.md
 AGENTS.local.md
 CLAUDE.md
 CLAUDE.local.md
