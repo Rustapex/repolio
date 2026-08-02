@@ -1,8 +1,60 @@
 {
-  "generatedAt": "2026-08-01T07:21:10.504Z",
+  "generatedAt": "2026-08-02T04:34:16.777Z",
   "owner": "Rustapex",
   "source": "https://api.github.com/users/Rustapex/repos",
   "repositories": [
+    {
+      "id": 1319046604,
+      "name": "repolio",
+      "fullName": "Rustapex/repolio",
+      "htmlUrl": "https://github.com/Rustapex/repolio",
+      "description": "GitHub repository index and portfolio for Rustapex",
+      "homepage": null,
+      "visibility": "public",
+      "fork": false,
+      "archived": false,
+      "defaultBranch": "main",
+      "branches": [
+        "dependabot/github_actions/actions/checkout-7",
+        "dependabot/github_actions/actions/configure-pages-6",
+        "dependabot/github_actions/actions/deploy-pages-5",
+        "dependabot/github_actions/actions/setup-node-7",
+        "dependabot/github_actions/actions/upload-pages-artifact-5",
+        "dependabot/npm_and_yarn/frontend-1939bc3e6a",
+        "main"
+      ],
+      "primaryLanguage": "TypeScript",
+      "languages": [
+        {
+          "name": "TypeScript",
+          "bytes": 20698,
+          "percentage": 51.7
+        },
+        {
+          "name": "CSS",
+          "bytes": 13726,
+          "percentage": 34.3
+        },
+        {
+          "name": "JavaScript",
+          "bytes": 5100,
+          "percentage": 12.7
+        },
+        {
+          "name": "HTML",
+          "bytes": 487,
+          "percentage": 1.2
+        }
+      ],
+      "topics": [],
+      "stars": 0,
+      "forks": 0,
+      "createdAt": "2026-08-01T06:52:10Z",
+      "updatedAt": "2026-08-02T03:59:56Z",
+      "pushedAt": "2026-08-02T04:29:35Z",
+      "readme": "# Repolio\n\nRustapex 계정의 공개 GitHub 저장소를 검색하고 분류해 한눈에 살펴보는 저장소 인덱스입니다.\n\n배포 주소: <https://rustapex.github.io/repolio/>\n\n## 주요 기능\n\n- 공개 저장소의 이름, 설명, 상태, 언어 비율, stars, 수정일을 GitHub에서 자동 수집합니다.\n- README를 카드 안에서 GitHub Flavored Markdown으로 미리 보여줍니다.\n- 이름·설명 검색과 유형·언어·사용자 지정 그룹 필터, 최근 수정·이름·stars 정렬을 제공합니다.\n- 라이트/다크 테마를 전환하고 선택을 브라우저에 저장합니다.\n- GitHub Actions가 6시간마다 데이터를 갱신하고 Pages를 재배포합니다.\n- Actions의 `Sync and Deploy` 워크플로를 필요할 때 수동으로 실행할 수 있습니다.\n\n## 그룹 관리\n\n그룹만 [`src/data/groups.json`](src/data/groups.json)에서 직접 관리합니다. 키는 저장소 이름이고 값은 그룹 문자열 배열입니다.\n\n```json\n{\n  \"example-repository\": [\"study\", \"frontend\"]\n}\n```\n\n저장소의 공개 전환이나 새 공개 저장소 추가는 다음 동기화부터 자동 반영됩니다. 저장소 이름·언어·README 같은 GitHub 메타데이터를 별도로 입력할 필요가 없습니다.\n\n## 로컬 실행\n\n```bash\nnpm install\nnpm run sync\nnpm run dev\n```\n\nGitHub API의 비인증 요청 제한을 피하려면 선택적으로 `GITHUB_TOKEN` 환경 변수를 사용할 수 있습니다. 토큰은 생성 파일이나 브라우저 번들에 포함되지 않습니다.\n\n## 문서\n\n- [구현 계획](docs/plans/implementation-plan.md)\n- [구현 로드맵과 운영 계획](docs/plans/roadmap.md)\n",
+      "license": null
+    },
     {
       "id": 1167194467,
       "name": "JAVA",
@@ -14,6 +66,11 @@
       "fork": false,
       "archived": false,
       "defaultBranch": "main",
+      "branches": [
+        "로그인",
+        "친구",
+        "main"
+      ],
       "primaryLanguage": "Java",
       "languages": [
         {
@@ -42,6 +99,9 @@
       "fork": false,
       "archived": false,
       "defaultBranch": "master",
+      "branches": [
+        "master"
+      ],
       "primaryLanguage": "Java",
       "languages": [
         {
@@ -80,6 +140,9 @@
       "fork": false,
       "archived": false,
       "defaultBranch": "main",
+      "branches": [
+        "main"
+      ],
       "primaryLanguage": "Java",
       "languages": [
         {
@@ -108,6 +171,9 @@
       "fork": false,
       "archived": false,
       "defaultBranch": "main",
+      "branches": [
+        "main"
+      ],
       "primaryLanguage": "PLSQL",
       "languages": [
         {
@@ -136,6 +202,9 @@
       "fork": false,
       "archived": false,
       "defaultBranch": "main",
+      "branches": [
+        "main"
+      ],
       "primaryLanguage": "Java",
       "languages": [
         {
@@ -164,6 +233,10 @@
       "fork": false,
       "archived": false,
       "defaultBranch": "main",
+      "branches": [
+        "main",
+        "PC"
+      ],
       "primaryLanguage": "Java",
       "languages": [
         {
@@ -207,6 +280,9 @@
       "fork": false,
       "archived": false,
       "defaultBranch": "main",
+      "branches": [
+        "main"
+      ],
       "primaryLanguage": "Java",
       "languages": [
         {
@@ -240,6 +316,9 @@
       "fork": false,
       "archived": false,
       "defaultBranch": "main",
+      "branches": [
+        "main"
+      ],
       "primaryLanguage": "Java",
       "languages": [
         {
@@ -273,6 +352,9 @@
       "fork": false,
       "archived": false,
       "defaultBranch": "main",
+      "branches": [
+        "main"
+      ],
       "primaryLanguage": "Java",
       "languages": [
         {
@@ -292,7 +374,7 @@
       "createdAt": "2026-07-29T15:24:23Z",
       "updatedAt": "2026-08-01T07:03:35Z",
       "pushedAt": "2026-07-29T15:52:26Z",
-      "readme": "��#\u0000 \u0000s\u0000p\u0000r\u0000i\u0000n\u0000g\u0000A\u0000p\u0000p\u0000D\u0000o\u0000c\u0000k\u0000e\u0000r\u0000\r\u0000\n\u0000#\u0000 \u0000s\u0000p\u0000r\u0000i\u0000n\u0000g\u0000A\u0000p\u0000p\u0000D\u0000o\u0000c\u0000k\u0000e\u0000r\u0000\r\u0000\n\u0000#\u0000 \u0000s\u0000p\u0000r\u0000i\u0000n\u0000g\u0000A\u0000p\u0000p\u0000D\u0000o\u0000c\u0000k\u0000e\u0000r\u0000\r\u0000\n\u0000",
+      "readme": "# springAppDocker\r\n# springAppDocker\r\n# springAppDocker\r\n",
       "license": null
     },
     {
@@ -306,6 +388,9 @@
       "fork": false,
       "archived": false,
       "defaultBranch": "main",
+      "branches": [
+        "main"
+      ],
       "primaryLanguage": "Java",
       "languages": [
         {
@@ -320,7 +405,7 @@
       "createdAt": "2026-07-29T15:24:18Z",
       "updatedAt": "2026-08-01T07:03:26Z",
       "pushedAt": "2026-07-29T15:52:24Z",
-      "readme": "��#\u0000 \u0000a\u0000w\u0000s\u0000-\u0000e\u0000c\u00002\u0000-\u0000d\u0000e\u0000p\u0000l\u0000o\u0000y\u0000\r\u0000\n\u0000#\u0000 \u0000h\u0000e\u0000l\u0000l\u0000o\u0000D\u0000e\u0000p\u0000l\u0000o\u0000y\u0000\r\u0000\n\u0000",
+      "readme": "# aws-ec2-deploy\r\n# helloDeploy\r\n",
       "license": null
     },
     {
@@ -334,6 +419,9 @@
       "fork": false,
       "archived": false,
       "defaultBranch": "main",
+      "branches": [
+        "main"
+      ],
       "primaryLanguage": "Java",
       "languages": [
         {
@@ -353,7 +441,7 @@
       "createdAt": "2026-07-28T00:33:38Z",
       "updatedAt": "2026-08-01T07:03:19Z",
       "pushedAt": "2026-07-28T05:24:33Z",
-      "readme": "��#\u0000 \u0000k\u0000u\u0000b\u0000e\u0000\r\u0000\n\u0000",
+      "readme": "# kube\r\n",
       "license": null
     },
     {
@@ -367,6 +455,9 @@
       "fork": false,
       "archived": false,
       "defaultBranch": "main",
+      "branches": [
+        "main"
+      ],
       "primaryLanguage": "Java",
       "languages": [
         {
@@ -391,7 +482,7 @@
       "createdAt": "2026-06-30T03:24:46Z",
       "updatedAt": "2026-08-01T07:03:09Z",
       "pushedAt": "2026-06-30T06:11:25Z",
-      "readme": "��#\u0000 \u0000c\u0000l\u0000o\u0000u\u0000d\u00004\u0000c\u0000i\u0000c\u0000d\u00003\u0000\r\u0000\n\u0000",
+      "readme": "# cloud4cicd3\r\n",
       "license": null
     },
     {
@@ -405,6 +496,9 @@
       "fork": false,
       "archived": false,
       "defaultBranch": "main",
+      "branches": [
+        "main"
+      ],
       "primaryLanguage": "Java",
       "languages": [
         {
@@ -424,7 +518,7 @@
       "createdAt": "2026-06-30T02:11:34Z",
       "updatedAt": "2026-08-01T07:02:56Z",
       "pushedAt": "2026-06-30T02:31:36Z",
-      "readme": "��#\u0000 \u0000c\u0000l\u0000o\u0000u\u0000d\u00004\u0000c\u0000i\u0000c\u0000d\u00002\u0000\r\u0000\n\u0000",
+      "readme": "# cloud4cicd2\r\n",
       "license": null
     },
     {
@@ -438,6 +532,9 @@
       "fork": false,
       "archived": false,
       "defaultBranch": "main",
+      "branches": [
+        "main"
+      ],
       "primaryLanguage": "Java",
       "languages": [
         {
@@ -452,7 +549,7 @@
       "createdAt": "2026-06-30T00:45:25Z",
       "updatedAt": "2026-08-01T07:02:14Z",
       "pushedAt": "2026-06-30T01:21:11Z",
-      "readme": "��#\u0000 \u0000c\u0000l\u0000o\u0000u\u0000d\u00004\u0000_\u0000c\u0000i\u0000c\u0000d\u00001\u0000\r\u0000\n\u0000",
+      "readme": "# cloud4_cicd1\r\n",
       "license": null
     },
     {
@@ -466,6 +563,9 @@
       "fork": false,
       "archived": false,
       "defaultBranch": "main",
+      "branches": [
+        "main"
+      ],
       "primaryLanguage": "Java",
       "languages": [
         {
@@ -504,6 +604,14 @@
       "fork": false,
       "archived": false,
       "defaultBranch": "main",
+      "branches": [
+        "해수",
+        "HAESU",
+        "main",
+        "MINGYEONG",
+        "yeongseok",
+        "YUNSEONG"
+      ],
       "primaryLanguage": "HTML",
       "languages": [
         {
@@ -532,28 +640,6 @@
       "license": null
     },
     {
-      "id": 1319046604,
-      "name": "repolio",
-      "fullName": "Rustapex/repolio",
-      "htmlUrl": "https://github.com/Rustapex/repolio",
-      "description": "GitHub repository index and portfolio for Rustapex",
-      "homepage": null,
-      "visibility": "public",
-      "fork": false,
-      "archived": false,
-      "defaultBranch": "main",
-      "primaryLanguage": null,
-      "languages": [],
-      "topics": [],
-      "stars": 0,
-      "forks": 0,
-      "createdAt": "2026-08-01T06:52:10Z",
-      "updatedAt": "2026-08-01T06:56:51Z",
-      "pushedAt": "2026-08-01T06:56:43Z",
-      "readme": "# Repolio\n\nRustapex 계정의 공개 GitHub 저장소를 한눈에 탐색하기 위한 저장소 인덱스이자 포트폴리오 사이트입니다.\n\n완성된 사이트는 GitHub Pages의 `https://rustapex.github.io/repolio/`에서 제공할 예정입니다.\n\n## 확정된 방향\n\n- 공개 저장소만 GitHub API로 자동 수집합니다.\n- 저장소 이름, 설명, 언어, 상태, 수정일과 README 미리보기는 자동으로 갱신합니다.\n- 사용자가 직접 정하는 그룹만 `groups.json`에서 관리합니다.\n- 라이트·다크 테마와 반응형 화면을 제공합니다.\n- GitHub Actions가 6시간마다 동기화하며 필요할 때 수동으로도 실행할 수 있습니다.\n- React, Vite, TypeScript와 GitHub Pages를 사용합니다.\n\n## 문서\n\n- [구현 계획](docs/implementation-plan.md)\n\n현재 저장소에는 구현 전 합의한 계획과 로컬 작업 제외 규칙만 포함되어 있습니다. 애플리케이션 구현은 후속 브랜치와 Pull Request로 진행합니다.\n",
-      "license": null
-    },
-    {
       "id": 1191206846,
       "name": "acorncampus_ATM",
       "fullName": "Rustapex/acorncampus_ATM",
@@ -564,6 +650,9 @@
       "fork": true,
       "archived": false,
       "defaultBranch": "main",
+      "branches": [
+        "main"
+      ],
       "primaryLanguage": "Java",
       "languages": [
         {

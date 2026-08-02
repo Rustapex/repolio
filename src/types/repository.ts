@@ -17,6 +17,7 @@ export interface Repository {
   fork: boolean
   archived: boolean
   defaultBranch: string
+  branches: string[]
   primaryLanguage: string | null
   languages: LanguageUsage[]
   topics: string[]

@@ -1,4 +1,5 @@
 import {mkdir, writeFile} from 'node:fs/promises'
+import {decodeReadme, normalizeBranchNames} from './repository-sync-utils.mjs'
 
 const owner = process.env.GITHUB_OWNER ?? 'Rustapex'
 const apiRoot = 'https://api.github.com'
@@ -11,6 +12,10 @@ const headers = {
   'User-Agent': 'repolio-sync',
   'X-GitHub-Api-Version': '2022-11-28',
   ...(token ? {Authorization: `Bearer ${token}`} : {}),
+}
+
+function encodeRepositoryName(fullName) {
+  return fullName.split('/').map(encodeURIComponent).join('/')
 }
 
 async function fetchJson(url) {
@@ -44,22 +49,43 @@ async function fetchLanguages(repository) {
 
 async function fetchReadme(repository) {
   const branch = encodeURIComponent(repository.default_branch)
-  const fullName = repository.full_name.split('/').map(encodeURIComponent).join('/')
+  const fullName = encodeRepositoryName(repository.full_name)
   for (const filename of ['README.md', 'readme.md', 'README.MD']) {
     const response = await fetch(`https://raw.githubusercontent.com/${fullName}/${branch}/${filename}`)
-    if (response.ok) return (await response.text()).slice(0, readmeLimit)
+    if (response.ok) {
+      const bytes = new Uint8Array(await response.arrayBuffer())
+      return decodeReadme(bytes).slice(0, readmeLimit)
+    }
     if (response.status !== 404) throw new Error(`${response.status} ${response.statusText}`)
   }
   return null
 }
 
+async function fetchBranches(repository) {
+  const branches = []
+  const fullName = encodeRepositoryName(repository.full_name)
+
+  for (let page = 1; ; page += 1) {
+    const url = new URL(`${apiRoot}/repos/${fullName}/branches`)
+    url.searchParams.set('per_page', '100')
+    url.searchParams.set('page', String(page))
+    const batch = await fetchJson(url)
+    branches.push(...batch)
+    if (batch.length < 100) break
+  }
+
+  return normalizeBranchNames(branches, repository.default_branch)
+}
+
 async function normalizeRepository(repository, warnings) {
   let languages = []
   let readme = null
+  let branches = normalizeBranchNames([], repository.default_branch)
 
-  const [languageResult, readmeResult] = await Promise.allSettled([
+  const [languageResult, readmeResult, branchResult] = await Promise.allSettled([
     fetchLanguages(repository),
     fetchReadme(repository),
+    fetchBranches(repository),
   ])
 
   if (languageResult.status === 'fulfilled') languages = languageResult.value
@@ -67,6 +93,9 @@ async function normalizeRepository(repository, warnings) {
 
   if (readmeResult.status === 'fulfilled') readme = readmeResult.value
   else warnings.push(`${repository.name}: README를 불러오지 못했습니다.`)
+
+  if (branchResult.status === 'fulfilled') branches = branchResult.value
+  else warnings.push(`${repository.name}: 브랜치 정보를 불러오지 못했습니다.`)
 
   return {
     id: repository.id,
@@ -79,6 +108,7 @@ async function normalizeRepository(repository, warnings) {
     fork: repository.fork,
     archived: repository.archived,
     defaultBranch: repository.default_branch,
+    branches,
     primaryLanguage: repository.language,
     languages,
     topics: repository.topics ?? [],

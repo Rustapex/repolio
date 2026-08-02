@@ -38,7 +38,7 @@ export function RepositoryCard({repository}: {repository: Repository}) {
       <div className="repository-meta">
         <span><StarIcon size={15} /> {repository.stars}</span>
         <span><RepoForkedIcon size={15} /> {repository.forks}</span>
-        <span>수정 {formatKoreanDate(repository.updatedAt)}</span>
+        <span>수정 {formatKoreanDate(repository.pushedAt || repository.updatedAt)}</span>
       </div>
 
       {repository.languages.length > 0 && (

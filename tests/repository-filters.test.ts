@@ -14,6 +14,7 @@ function repository(overrides: Partial<Repository> = {}): Repository {
     fork: false,
     archived: false,
     defaultBranch: 'main',
+    branches: ['main'],
     primaryLanguage: 'TypeScript',
     languages: [{name: 'TypeScript', bytes: 100, percentage: 100}],
     topics: ['portfolio'],
@@ -61,5 +62,14 @@ describe('filterRepositories', () => {
 
   it('stars 내림차순으로 정렬한다', () => {
     expect(filterRepositories(repositories, {...defaults, sort: 'stars'}).map(({name}) => name)).toEqual(['beta', 'alpha', 'legacy'])
+  })
+
+  it('최근 수정 정렬은 저장소 메타데이터 갱신 시각 대신 마지막 push 시각을 사용한다', () => {
+    const results = filterRepositories([
+      repository({name: 'metadata-only', updatedAt: '2025-04-01T00:00:00Z', pushedAt: '2025-01-01T00:00:00Z'}),
+      repository({id: 2, name: 'recent-push', updatedAt: '2025-02-01T00:00:00Z', pushedAt: '2025-03-01T00:00:00Z'}),
+    ], defaults)
+
+    expect(results.map(({name}) => name)).toEqual(['recent-push', 'metadata-only'])
   })
 })
