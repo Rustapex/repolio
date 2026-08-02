@@ -1,4 +1,4 @@
-import {ArchiveIcon, LinkExternalIcon, RepoForkedIcon, StarIcon} from '@primer/octicons-react'
+import {ArchiveIcon, GitBranchIcon, LinkExternalIcon, RepoForkedIcon, StarIcon} from '@primer/octicons-react'
 import {formatKoreanDate} from '../lib/repositories'
 import type {Repository} from '../types/repository'
 import {ReadmePreview} from './ReadmePreview'
@@ -38,6 +38,7 @@ export function RepositoryCard({repository}: {repository: Repository}) {
       <div className="repository-meta">
         <span><StarIcon size={15} /> {repository.stars}</span>
         <span><RepoForkedIcon size={15} /> {repository.forks}</span>
+        <span><GitBranchIcon size={15} /> 브랜치 {repository.branches.length}</span>
         <span>수정 {formatKoreanDate(repository.pushedAt || repository.updatedAt)}</span>
       </div>
 
