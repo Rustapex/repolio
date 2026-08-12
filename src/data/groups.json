@@ -1,173 +1,135 @@
 {
-  "FrontProject": [
-    "team",
-    "acorn",
-    "frontend",
-    "staticWeb",
-    "restaurantReservation"
+  "categories": {
+    "frontend": {"label": "프론트엔드", "groups": ["react", "vite", "typescript", "axios", "react-router", "jquery", "static-site"]},
+    "backend": {"label": "백엔드", "groups": ["java", "spring-framework", "spring-boot", "spring-mvc", "java-servlet", "jsp", "thymeleaf", "jpa", "querydsl", "mybatis", "jdbc", "aop", "mvc-pattern", "file-upload", "gradle"]},
+    "database": {"label": "데이터베이스", "groups": ["sql", "mysql", "oracle-database"]},
+    "cloud-devops": {"label": "클라우드·DevOps", "groups": ["ci-cd", "docker", "kubernetes", "kubernetes-service", "kubernetes-nodeport", "deployment", "github-actions", "aws-ec2", "aws-rds", "aws-s3", "amazon-ecr", "github-pages", "ssh-deployment", "jar-deployment"]},
+    "api-integration": {"label": "API·연동", "groups": ["rest-api", "github-api", "json"]},
+    "desktop": {"label": "데스크톱", "groups": ["java-swing"]},
+    "algorithm": {"label": "알고리즘", "groups": ["algorithm", "baekjoon"]},
+    "service-domain": {"label": "서비스 도메인", "groups": ["banking", "restaurant-reservation", "ebook-rental"]}
+  },
+  "groups": {
+    "react": {"label": "React"}, "vite": {"label": "Vite"}, "typescript": {"label": "TypeScript"}, "axios": {"label": "Axios"}, "react-router": {"label": "React Router"}, "jquery": {"label": "jQuery"}, "static-site": {"label": "정적 웹사이트"},
+    "java": {"label": "Java"}, "spring-framework": {"label": "Spring Framework"}, "spring-boot": {"label": "Spring Boot"}, "spring-mvc": {"label": "Spring MVC"}, "java-servlet": {"label": "Java Servlet"}, "jsp": {"label": "JSP"}, "thymeleaf": {"label": "Thymeleaf"}, "jpa": {"label": "JPA"}, "querydsl": {"label": "QueryDSL"}, "mybatis": {"label": "MyBatis"}, "jdbc": {"label": "JDBC"}, "aop": {"label": "AOP"}, "mvc-pattern": {"label": "MVC 패턴"}, "file-upload": {"label": "파일 업로드"}, "gradle": {"label": "Gradle"},
+    "sql": {"label": "SQL"}, "mysql": {"label": "MySQL"}, "oracle-database": {"label": "Oracle Database"},
+    "ci-cd": {"label": "CI/CD"}, "docker": {"label": "Docker"}, "kubernetes": {"label": "Kubernetes"}, "kubernetes-service": {"label": "Kubernetes Service"}, "kubernetes-nodeport": {"label": "Kubernetes NodePort"}, "deployment": {"label": "배포"}, "github-actions": {"label": "GitHub Actions"}, "aws-ec2": {"label": "AWS EC2"}, "aws-rds": {"label": "AWS RDS"}, "aws-s3": {"label": "AWS S3"}, "amazon-ecr": {"label": "Amazon ECR"}, "github-pages": {"label": "GitHub Pages"}, "ssh-deployment": {"label": "SSH 배포"}, "jar-deployment": {"label": "JAR 배포"},
+    "rest-api": {"label": "REST API"}, "github-api": {"label": "GitHub API"}, "json": {"label": "JSON"}, "java-swing": {"label": "Java Swing"}, "algorithm": {"label": "알고리즘"}, "baekjoon": {"label": "Baekjoon"}, "banking": {"label": "은행"}, "restaurant-reservation": {"label": "음식점 예약"}, "ebook-rental": {"label": "전자책 대여"}
+  },
+  "repositories": {
+    "FrontProject": [
+    "static-site",
+    "restaurant-reservation"
   ],
-  "acorncampus_ATM": ["team", "acorn", "javaSwing", "desktopApp", "banking"],
+  "acorncampus_ATM": ["java-swing", "banking"],
   "web": [
-    "solo",
-    "acorn",
     "jsp",
-    "javaServlet",
-    "studySource",
-    "webApp",
-    "fileUpload",
+    "java-servlet",
+    "file-upload",
     "json"
   ],
-  "JAVA": ["solo", "algorithm", "baekjoon"],
+  "JAVA": ["algorithm", "baekjoon"],
   "JavaServletMVC-Project": [
-    "team",
-    "acorn",
     "jsp",
-    "javaServlet",
-    "mvcPattern",
-    "webProject",
+    "java-servlet",
+    "mvc-pattern",
     "jquery"
   ],
   "spring-legacy": [
-    "solo",
-    "acorn",
-    "spring",
-    "studySource",
-    "springMvc",
-    "aop",
-    "legacy"
+    "spring-framework",
+    "spring-mvc",
+    "aop"
   ],
   "DATABASE": [
-    "solo",
-    "acorn",
-    "studySource",
-    "oracle",
-    "oracle19c",
-    "sql",
-    "database"
+    "oracle-database",
+    "sql"
   ],
-  "JAVA2": ["solo", "acorn", "studySource", "javaBasics"],
+  "JAVA2": ["java"],
   "spring-boot-practice": [
-    "solo",
-    "acorn",
-    "springBoot",
-    "studySource",
+    "spring-boot",
     "mybatis",
     "jdbc",
-    "oracle",
-    "springMvc"
+    "oracle-database",
+    "spring-mvc"
   ],
   "cloud4_cicd1": [
-    "solo",
-    "acorn",
-    "cloud",
-    "studySource",
-    "cicd",
-    "springBoot",
-    "githubActions",
-    "awsEc2",
-    "sshDeploy"
+    "ci-cd",
+    "spring-boot",
+    "github-actions",
+    "aws-ec2",
+    "ssh-deployment"
   ],
   "cloud4cicd2": [
-    "solo",
-    "acorn",
-    "cloud",
-    "studySource",
-    "cicd",
-    "springBoot",
-    "githubActions",
-    "awsEc2",
-    "jarDeploy"
+    "ci-cd",
+    "spring-boot",
+    "github-actions",
+    "aws-ec2",
+    "jar-deployment"
   ],
   "cloud4cicd3": [
-    "solo",
-    "acorn",
-    "cloud",
-    "studySource",
-    "cicd",
-    "springBoot",
-    "githubActions",
-    "awsEc2",
+    "ci-cd",
+    "spring-boot",
+    "github-actions",
+    "aws-ec2",
     "docker",
-    "ecr"
+    "amazon-ecr"
   ],
   "Kubernates": [
-    "solo",
-    "acorn",
-    "cloud",
-    "studySource",
     "kubernetes",
     "docker",
     "deployment",
-    "service",
-    "nodePort"
+    "kubernetes-service",
+    "kubernetes-nodeport"
   ],
   "hi-deploy-backup": [
-    "solo",
-    "acorn",
-    "cloud",
-    "studySource",
-    "springBoot",
+    "spring-boot",
     "thymeleaf",
-    "awsEc2",
+    "aws-ec2",
     "deployment"
   ],
   "demo-docker-backup": [
-    "solo",
-    "acorn",
-    "cloud",
     "docker",
-    "studySource",
-    "springBoot",
-    "containerization"
+    "spring-boot"
   ],
-  "jpa-prac-0706": ["solo", "springBoot", "jpa", "mysql", "thymeleaf"],
+  "jpa-prac-0706": ["spring-boot", "jpa", "mysql", "thymeleaf"],
   "jpa-prac-07063": [
-    "solo",
-    "springBoot",
+    "spring-boot",
     "jpa",
     "mysql",
     "thymeleaf",
     "querydsl"
   ],
   "repolio": [
-    "solo",
     "react",
-    "cicd",
-    "github",
-    "frontend",
-    "portfolio",
-    "githubPages",
+    "ci-cd",
+    "github-pages",
     "vite",
-    "githubApi"
+    "github-api"
   ],
   "ebook-library-backend": [
-    "team",
-    "acorn",
     "react",
-    "restApi",
-    "cicd",
+    "rest-api",
+    "ci-cd",
     "jpa",
     "mysql",
-    "springBoot",
+    "spring-boot",
     "java",
     "gradle",
     "docker",
-    "githubActions",
-    "awsEc2",
-    "awsRds",
-    "awsS3",
-    "ebookRental"
+    "github-actions",
+    "aws-ec2",
+    "aws-rds",
+    "aws-s3",
+    "ebook-rental"
   ],
   "ebook-library-frontend": [
-    "team",
-    "acorn",
     "react",
     "vite",
     "typescript",
     "axios",
-    "reactRouter",
-    "frontend",
-    "restApi",
-    "ebookRental"
+    "react-router",
+    "rest-api",
+    "ebook-rental"
   ]
+  }
 }

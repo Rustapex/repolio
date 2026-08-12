@@ -99,7 +99,11 @@
 .repository-card__description { min-height: 48px; margin: var(--space-4) var(--space-5) 0; color: var(--fg-muted); line-height: 1.55; }
 .repository-card__description.is-empty { color: var(--fg-subtle); font-style: italic; }
 .group-list { display: flex; flex-wrap: wrap; gap: var(--space-1); margin: var(--space-3) var(--space-5) 0; }
-.group-chip { padding: 2px 8px; border-radius: var(--radius-pill); background: var(--accent-muted); color: var(--accent); font-size: 12px; font-weight: 600; }
+.group-chip { padding: 2px 8px; border: 0; border-radius: var(--radius-pill); background: var(--accent-muted); color: var(--accent); font-size: 12px; font-weight: 600; }
+.group-chip:hover { text-decoration: underline; }
+.group-details { flex-basis: 100%; color: var(--fg-muted); font-size: 12px; }
+.group-details summary { width: fit-content; cursor: pointer; }
+.group-details__list { display: flex; flex-wrap: wrap; gap: var(--space-1); margin-top: var(--space-2); }
 .repository-meta { display: flex; flex-wrap: wrap; gap: var(--space-3); margin: var(--space-4) var(--space-5) 0; color: var(--fg-muted); font-size: 12px; }
 .repository-meta span { display: inline-flex; align-items: center; gap: 4px; }
 .languages { margin: var(--space-4) var(--space-5) var(--space-5); }

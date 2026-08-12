@@ -1,10 +1,10 @@
 import {SearchIcon, XIcon} from '@primer/octicons-react'
-import type {RepositoryFilters as FilterState, RepositorySort, RepositoryTypeFilter} from '../types/repository'
+import type {RepositoryFilters as FilterState, RepositoryGroup, RepositorySort, RepositoryTypeFilter} from '../types/repository'
 
 interface RepositoryFiltersProps {
   filters: FilterState
   languages: string[]
-  groups: string[]
+  groups: RepositoryGroup[]
   resultCount: number
   totalCount: number
   onChange: (filters: FilterState) => void
@@ -51,7 +51,7 @@ export function RepositoryFilters({filters, languages, groups, resultCount, tota
 
         <FilterSelect label="그룹" value={filters.group} onChange={value => update('group', value)}>
           <option value="">전체 그룹</option>
-          {groups.map(group => <option key={group} value={group}>{group}</option>)}
+          {groups.map(group => <option key={group.id} value={group.id}>{group.label}</option>)}
         </FilterSelect>
 
         <FilterSelect label="정렬" value={filters.sort} onChange={value => update('sort', value as RepositorySort)}>

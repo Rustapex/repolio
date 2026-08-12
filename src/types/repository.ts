@@ -1,4 +1,22 @@
-export type RepositoryGroupMap = Record<string, string[]>
+export interface RepositoryGroup {
+  id: string
+  label: string
+}
+
+export interface RepositoryGroupDefinition {
+  label: string
+}
+
+export interface RepositoryGroupCategory {
+  label: string
+  groups: string[]
+}
+
+export interface RepositoryGroupCatalog {
+  categories: Record<string, RepositoryGroupCategory>
+  groups: Record<string, RepositoryGroupDefinition>
+  repositories: Record<string, string[]>
+}
 
 export interface LanguageUsage {
   name: string
@@ -28,7 +46,8 @@ export interface Repository {
   pushedAt: string
   readme: string | null
   license: string | null
-  groups?: string[]
+  groups?: RepositoryGroup[]
+  categories?: RepositoryGroup[]
 }
 
 export interface RepositoryCatalog {

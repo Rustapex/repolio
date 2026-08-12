@@ -1,6 +1,6 @@
 import {describe, expect, it} from 'vitest'
 import {attachGroups, filterRepositories} from '../src/lib/repositories'
-import type {Repository, RepositoryFilters} from '../src/types/repository'
+import type {Repository, RepositoryFilters, RepositoryGroupCatalog} from '../src/types/repository'
 
 function repository(overrides: Partial<Repository> = {}): Repository {
   return {
@@ -31,15 +31,31 @@ function repository(overrides: Partial<Repository> = {}): Repository {
 
 const defaults: RepositoryFilters = {query: '', type: 'all', language: '', group: '', sort: 'updated'}
 
+function groupCatalog(repositories: Record<string, string[]>): RepositoryGroupCatalog {
+  return {
+    categories: {
+      frontend: {label: 'Frontend', groups: ['react']},
+      backend: {label: 'Backend', groups: ['spring-boot']},
+    },
+    groups: {
+      react: {label: 'React'},
+      'spring-boot': {label: 'Spring Boot'},
+    },
+    repositories,
+  }
+}
+
 describe('attachGroups', () => {
   it('사용자가 지정한 그룹을 저장소 이름으로 병합하고 중복을 제거한다', () => {
-    const [result] = attachGroups([repository()], {alpha: ['study', 'study', 'frontend']})
-    expect(result.groups).toEqual(['frontend', 'study'])
+    const [result] = attachGroups([repository()], groupCatalog({alpha: ['react', 'react']}))
+    expect(result.groups?.map(group => group.id)).toEqual(['react'])
+    expect(result.categories?.map(category => category.id)).toEqual(['frontend'])
   })
 
   it('그룹 설정이 없는 저장소도 빈 배열로 유지한다', () => {
-    const [result] = attachGroups([repository()], {})
+    const [result] = attachGroups([repository()], groupCatalog({}))
     expect(result.groups).toEqual([])
+    expect(result.categories).toEqual([])
   })
 })
 
@@ -48,11 +64,16 @@ describe('filterRepositories', () => {
     repository(),
     repository({id: 2, name: 'beta', fullName: 'Rustapex/beta', fork: true, primaryLanguage: 'Python', languages: [{name: 'Python', bytes: 50, percentage: 100}], stars: 10, updatedAt: '2025-02-01T00:00:00Z'}),
     repository({id: 3, name: 'legacy', fullName: 'Rustapex/legacy', archived: true, updatedAt: '2024-01-01T00:00:00Z'}),
-  ], {alpha: ['frontend'], beta: ['backend']})
+  ], groupCatalog({alpha: ['react'], beta: ['spring-boot']}))
 
   it('언어와 그룹 조건을 함께 적용한다', () => {
     const results = filterRepositories(repositories, {...defaults, language: 'TypeScript', group: 'frontend'})
     expect(results.map(({name}) => name)).toEqual(['alpha'])
+  })
+
+  it('상위 그룹과 세부 그룹을 각각 필터링한다', () => {
+    expect(filterRepositories(repositories, {...defaults, group: 'frontend'}).map(({name}) => name)).toEqual(['alpha'])
+    expect(filterRepositories(repositories, {...defaults, group: 'spring-boot'}).map(({name}) => name)).toEqual(['beta'])
   })
 
   it('fork와 archived 유형을 정확히 구분한다', () => {

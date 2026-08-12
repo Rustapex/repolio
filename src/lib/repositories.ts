@@ -1,19 +1,34 @@
 import type {
   Repository,
   RepositoryFilters,
-  RepositoryGroupMap,
+  RepositoryGroup,
+  RepositoryGroupCatalog,
 } from '../types/repository'
+
+function compareGroups(left: RepositoryGroup, right: RepositoryGroup): number {
+  return left.label.localeCompare(right.label, 'ko')
+}
 
 export function attachGroups(
   repositories: Repository[],
-  groupMap: RepositoryGroupMap,
+  groupCatalog: RepositoryGroupCatalog,
 ): Repository[] {
-  return repositories.map(repository => ({
-    ...repository,
-    groups: [...new Set(groupMap[repository.name] ?? [])].sort((a, b) =>
-      a.localeCompare(b, 'ko'),
-    ),
-  }))
+  return repositories.map(repository => {
+    const groupIds = [...new Set(groupCatalog.repositories[repository.name] ?? [])]
+    const groups = groupIds
+      .map(groupId => {
+        const group = groupCatalog.groups[groupId]
+        return group ? {id: groupId, label: group.label} : undefined
+      })
+      .filter((group): group is RepositoryGroup => Boolean(group))
+      .sort(compareGroups)
+    const categories = Object.entries(groupCatalog.categories)
+      .filter(([, category]) => category.groups.some(groupId => groupIds.includes(groupId)))
+      .map(([id, category]) => ({id, label: category.label}))
+      .sort(compareGroups)
+
+    return {...repository, groups, categories}
+  })
 }
 
 export function filterRepositories(
@@ -33,7 +48,11 @@ export function filterRepositories(
     ) {
       return false
     }
-    if (filters.group && !repository.groups?.includes(filters.group)) return false
+    if (
+      filters.group &&
+      !repository.categories?.some(category => category.id === filters.group) &&
+      !repository.groups?.some(group => group.id === filters.group)
+    ) return false
 
     if (!query) return true
 
@@ -42,7 +61,8 @@ export function filterRepositories(
       repository.fullName,
       repository.description ?? '',
       ...repository.topics,
-      ...(repository.groups ?? []),
+      ...(repository.categories ?? []).flatMap(category => [category.id, category.label]),
+      ...(repository.groups ?? []).flatMap(group => [group.id, group.label]),
     ]
       .join(' ')
       .toLocaleLowerCase('ko')
@@ -62,9 +82,12 @@ export function collectLanguages(repositories: Repository[]): string[] {
     .sort((a, b) => a.localeCompare(b, 'ko'))
 }
 
-export function collectGroups(repositories: Repository[]): string[] {
-  return [...new Set(repositories.flatMap(repository => repository.groups ?? []))]
-    .sort((a, b) => a.localeCompare(b, 'ko'))
+export function collectCategories(repositories: Repository[]): RepositoryGroup[] {
+  const categories = new Map<string, RepositoryGroup>()
+  repositories.flatMap(repository => repository.categories ?? []).forEach(category => {
+    categories.set(category.id, category)
+  })
+  return [...categories.values()].sort(compareGroups)
 }
 
 export function formatKoreanDate(value: string): string {
