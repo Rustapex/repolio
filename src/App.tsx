@@ -5,8 +5,8 @@ import {Header} from './components/Header'
 import {RepositoryCard} from './components/RepositoryCard'
 import {RepositoryFilters} from './components/RepositoryFilters'
 import {useTheme} from './hooks/useTheme'
-import {attachGroups, collectGroups, collectLanguages, filterRepositories} from './lib/repositories'
-import type {RepositoryCatalog, RepositoryFilters as FilterState, RepositoryGroupMap} from './types/repository'
+import {attachGroups, collectCategories, collectLanguages, filterRepositories} from './lib/repositories'
+import type {RepositoryCatalog, RepositoryFilters as FilterState, RepositoryGroupCatalog} from './types/repository'
 
 const catalog = catalogData as RepositoryCatalog
 const initialFilters: FilterState = {query: '', type: 'all', language: '', group: '', sort: 'updated'}
@@ -15,7 +15,7 @@ export default function App() {
   const {theme, toggleTheme} = useTheme()
   const [filters, setFilters] = useState(initialFilters)
   const repositories = useMemo(
-    () => attachGroups(catalog.repositories, groupData as RepositoryGroupMap),
+    () => attachGroups(catalog.repositories, groupData as RepositoryGroupCatalog),
     [],
   )
   const filteredRepositories = useMemo(
@@ -36,7 +36,7 @@ export default function App() {
         <RepositoryFilters
           filters={filters}
           languages={collectLanguages(repositories)}
-          groups={collectGroups(repositories)}
+          groups={collectCategories(repositories)}
           resultCount={filteredRepositories.length}
           totalCount={repositories.length}
           onChange={setFilters}
@@ -44,7 +44,13 @@ export default function App() {
 
         {filteredRepositories.length > 0 ? (
           <section className="repository-grid" aria-label="저장소 목록">
-            {filteredRepositories.map(repository => <RepositoryCard key={repository.id} repository={repository} />)}
+            {filteredRepositories.map(repository => (
+              <RepositoryCard
+                key={repository.id}
+                repository={repository}
+                onGroupSelect={group => setFilters({...initialFilters, group})}
+              />
+            ))}
           </section>
         ) : (
           <section className="empty-state">

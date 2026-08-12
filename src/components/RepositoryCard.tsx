@@ -1,6 +1,6 @@
 import {ArchiveIcon, GitBranchIcon, LinkExternalIcon, RepoForkedIcon, StarIcon} from '@primer/octicons-react'
 import {formatKoreanDate} from '../lib/repositories'
-import type {Repository} from '../types/repository'
+import type {Repository, RepositoryGroup} from '../types/repository'
 import {ReadmePreview} from './ReadmePreview'
 
 const languageColors: Record<string, string> = {
@@ -8,7 +8,12 @@ const languageColors: Record<string, string> = {
   HTML: '#e34c26', CSS: '#663399', Shell: '#89e051', PLpgSQL: '#336790',
 }
 
-export function RepositoryCard({repository}: {repository: Repository}) {
+interface RepositoryCardProps {
+  repository: Repository
+  onGroupSelect: (group: string) => void
+}
+
+export function RepositoryCard({repository, onGroupSelect}: RepositoryCardProps) {
   return (
     <article className="repository-card">
       <div className="repository-card__header">
@@ -29,9 +34,21 @@ export function RepositoryCard({repository}: {repository: Repository}) {
         {repository.description ?? 'GitHub에 등록된 한 줄 소개가 없습니다.'}
       </p>
 
-      {repository.groups && repository.groups.length > 0 && (
+      {repository.categories && repository.categories.length > 0 && (
         <div className="group-list" aria-label="그룹">
-          {repository.groups.map(group => <span className="group-chip" key={group}>#{group}</span>)}
+          {repository.categories.map(group => (
+            <button className="group-chip" key={group.id} type="button" onClick={() => onGroupSelect(group.id)}>#{group.label}</button>
+          ))}
+          {repository.groups && repository.groups.length > 0 && (
+            <details className="group-details">
+              <summary>세부 그룹 {repository.groups.length}개</summary>
+              <div className="group-details__list" aria-label="세부 그룹">
+                {repository.groups.map(group => (
+                  <button className="group-chip" key={group.id} type="button" onClick={() => onGroupSelect(group.id)}>#{group.label}</button>
+                ))}
+              </div>
+            </details>
+          )}
         </div>
       )}
 
