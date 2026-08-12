@@ -1,6 +1,7 @@
-import {ArchiveIcon, GitBranchIcon, LinkExternalIcon, RepoForkedIcon, StarIcon} from '@primer/octicons-react'
+import {ArchiveIcon, ChevronDownIcon, GitBranchIcon, LinkExternalIcon, RepoForkedIcon, StarIcon} from '@primer/octicons-react'
+import {useState} from 'react'
 import {formatKoreanDate} from '../lib/repositories'
-import type {Repository, RepositoryGroup} from '../types/repository'
+import type {Repository} from '../types/repository'
 import {ReadmePreview} from './ReadmePreview'
 
 const languageColors: Record<string, string> = {
@@ -14,6 +15,17 @@ interface RepositoryCardProps {
 }
 
 export function RepositoryCard({repository, onGroupSelect}: RepositoryCardProps) {
+  const [expandedCategoryIds, setExpandedCategoryIds] = useState<Set<string>>(() => new Set())
+
+  const toggleCategory = (categoryId: string) => {
+    setExpandedCategoryIds(current => {
+      const next = new Set(current)
+      if (next.has(categoryId)) next.delete(categoryId)
+      else next.add(categoryId)
+      return next
+    })
+  }
+
   return (
     <article className="repository-card">
       <div className="repository-card__header">
@@ -36,19 +48,43 @@ export function RepositoryCard({repository, onGroupSelect}: RepositoryCardProps)
 
       {repository.categories && repository.categories.length > 0 && (
         <div className="group-list" aria-label="그룹">
-          {repository.categories.map(group => (
-            <button className="group-chip" key={group.id} type="button" onClick={() => onGroupSelect(group.id)}>#{group.label}</button>
-          ))}
-          {repository.groups && repository.groups.length > 0 && (
-            <details className="group-details">
-              <summary>세부 그룹 {repository.groups.length}개</summary>
-              <div className="group-details__list" aria-label="세부 그룹">
-                {repository.groups.map(group => (
-                  <button className="group-chip" key={group.id} type="button" onClick={() => onGroupSelect(group.id)}>#{group.label}</button>
-                ))}
+          {repository.categories.map(category => {
+            const detailsId = `repository-${repository.id}-category-${category.id}`
+            const isExpanded = expandedCategoryIds.has(category.id)
+            const detailCount = category.groups.length
+
+            return (
+              <div className={`group-category group-category--${category.id}`} key={category.id}>
+                <div className="group-category__heading">
+                  <button className="group-chip" type="button" onClick={() => onGroupSelect(category.id)}>
+                    #{category.label}
+                  </button>
+                  {detailCount > 0 && (
+                    <button
+                      aria-controls={detailsId}
+                      aria-expanded={isExpanded}
+                      aria-label={`${category.label} 세부 그룹 ${detailCount}개 ${isExpanded ? '접기' : '펼치기'}`}
+                      className="group-disclosure"
+                      type="button"
+                      onClick={() => toggleCategory(category.id)}
+                    >
+                      <ChevronDownIcon className="group-disclosure__icon" size={14} />
+                      세부 그룹 {detailCount}개
+                    </button>
+                  )}
+                </div>
+                {detailCount > 0 && (
+                  <div className="group-category__children" id={detailsId} aria-label={`${category.label} 세부 그룹`} hidden={!isExpanded}>
+                    {category.groups.map(group => (
+                      <button className="group-chip" key={group.id} type="button" onClick={() => onGroupSelect(group.id)}>
+                        #{group.label}
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
-            </details>
-          )}
+            )
+          })}
         </div>
       )}
 
