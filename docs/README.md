@@ -6,7 +6,7 @@
 
 | 변경 영역 | 먼저 읽을 문서 | 함께 갱신해야 하는 경우 |
 | --- | --- | --- |
-| UI, 테마, 반응형, 접근성 | `design/design-rules.md` | 토큰, 공통 패턴, 반응형 기준이 변경될 때 |
+| UI, 테마, 반응형, 접근성 | `design/design-rules.md`, `design/color-and-layout-system.md` | 토큰, 색상 역할, 공통 패턴, 반응형 기준이 변경될 때 |
 | 파일 위치, 모듈 경계, 의존 방향 | `architecture/project-structure.md` | 디렉터리 책임 또는 의존 규칙이 변경될 때 |
 | React 컴포넌트, 상태, 훅, 테스트 | `development/react-rules.md` | 구현 패턴 또는 상태 관리 기준이 변경될 때 |
 | 저장소 모델, 그룹, 생성 데이터 | `data/catalog-data-rules.md` | 데이터 계약, 생성·수동 관리 경계가 변경될 때 |

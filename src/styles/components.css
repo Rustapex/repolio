@@ -98,12 +98,26 @@
 .badge--public { border-color: color-mix(in srgb, var(--success) 36%, var(--border)); background: var(--success-muted); color: var(--success); }
 .repository-card__description { min-height: 48px; margin: var(--space-4) var(--space-5) 0; color: var(--fg-muted); line-height: 1.55; }
 .repository-card__description.is-empty { color: var(--fg-subtle); font-style: italic; }
-.group-list { display: flex; flex-wrap: wrap; gap: var(--space-1); margin: var(--space-3) var(--space-5) 0; }
-.group-chip { padding: 2px 8px; border: 0; border-radius: var(--radius-pill); background: var(--accent-muted); color: var(--accent); font-size: 12px; font-weight: 600; }
+.group-list { display: grid; gap: var(--space-2); margin: var(--space-3) var(--space-5) 0; }
+.group-category { --group-fg: var(--accent); --group-border: var(--border); --group-muted: var(--accent-muted); padding-bottom: var(--space-2); border-bottom: 1px solid var(--border-muted); }
+.group-category:last-child { padding-bottom: 0; border-bottom: 0; }
+.group-category--frontend { --group-fg: var(--category-frontend-fg); --group-border: var(--category-frontend-border); --group-muted: var(--category-frontend-muted); }
+.group-category--backend { --group-fg: var(--category-backend-fg); --group-border: var(--category-backend-border); --group-muted: var(--category-backend-muted); }
+.group-category--database { --group-fg: var(--category-database-fg); --group-border: var(--category-database-border); --group-muted: var(--category-database-muted); }
+.group-category--cloud-devops { --group-fg: var(--category-cloud-devops-fg); --group-border: var(--category-cloud-devops-border); --group-muted: var(--category-cloud-devops-muted); }
+.group-category--api-integration { --group-fg: var(--category-api-integration-fg); --group-border: var(--category-api-integration-border); --group-muted: var(--category-api-integration-muted); }
+.group-category--desktop { --group-fg: var(--category-desktop-fg); --group-border: var(--category-desktop-border); --group-muted: var(--category-desktop-muted); }
+.group-category--algorithm { --group-fg: var(--category-algorithm-fg); --group-border: var(--category-algorithm-border); --group-muted: var(--category-algorithm-muted); }
+.group-category--service-domain { --group-fg: var(--category-service-domain-fg); --group-border: var(--category-service-domain-border); --group-muted: var(--category-service-domain-muted); }
+.group-category__heading { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); }
+.group-chip { display: inline-flex; align-items: center; width: fit-content; padding: 2px 8px; border: 1px solid var(--group-border); border-radius: var(--radius-pill); background: var(--group-muted); color: var(--group-fg); font-size: 12px; font-weight: 600; }
 .group-chip:hover { text-decoration: underline; }
-.group-details { flex-basis: 100%; color: var(--fg-muted); font-size: 12px; }
-.group-details summary { width: fit-content; cursor: pointer; }
-.group-details__list { display: flex; flex-wrap: wrap; gap: var(--space-1); margin-top: var(--space-2); }
+.group-disclosure { display: inline-flex; align-items: center; gap: var(--space-1); padding: 2px 0; border: 0; background: transparent; color: var(--group-fg); font-size: 12px; font-weight: 600; }
+.group-disclosure__icon { transition: transform var(--transition); }
+.group-disclosure[aria-expanded='true'] .group-disclosure__icon { transform: rotate(180deg); }
+.group-category__children { display: flex; flex-wrap: wrap; gap: var(--space-1); margin-top: var(--space-2); padding: var(--space-2); border: 1px solid var(--group-border); border-radius: var(--radius-md); background: var(--group-muted); }
+.group-category__children[hidden] { display: none; }
+.group-chip:focus-visible, .group-disclosure:focus-visible { outline: 0; box-shadow: 0 0 0 3px color-mix(in srgb, var(--focus) 20%, transparent); }
 .repository-meta { display: flex; flex-wrap: wrap; gap: var(--space-3); margin: var(--space-4) var(--space-5) 0; color: var(--fg-muted); font-size: 12px; }
 .repository-meta span { display: inline-flex; align-items: center; gap: 4px; }
 .languages { margin: var(--space-4) var(--space-5) var(--space-5); }

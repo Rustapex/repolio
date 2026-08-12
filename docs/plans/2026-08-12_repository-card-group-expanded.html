@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>레포지토리 카드 그룹 시안 - 펼침</title>
+  <link rel="stylesheet" href="../../src/styles/tokens.css">
+  <style>
+    html { color-scheme: light dark; }
+    /* 계획용 분류 토큰: 실제 구현 시 같은 이름과 라이트·다크 값을 tokens.css로 옮긴다. */
+    :root, :root[data-theme='light'] {
+      --category-frontend-fg: #0969da;
+      --category-frontend-border: #54aeff;
+      --category-frontend-muted: #ddf4ff;
+      --category-api-integration-fg: #8250df;
+      --category-api-integration-border: #a475f9;
+      --category-api-integration-muted: #fbefff;
+      --category-service-domain-fg: #bc4c00;
+      --category-service-domain-border: #e16f24;
+      --category-service-domain-muted: #fff1e5;
+    }
+    :root[data-theme='dark'] {
+      --category-frontend-fg: #58a6ff;
+      --category-frontend-border: #1f6feb;
+      --category-frontend-muted: #121d2f;
+      --category-api-integration-fg: #d2a8ff;
+      --category-api-integration-border: #8957e5;
+      --category-api-integration-muted: #231942;
+      --category-service-domain-fg: #f0883e;
+      --category-service-domain-border: #db6d28;
+      --category-service-domain-muted: #3b1d0d;
+    }
+    * { box-sizing: border-box; }
+    body { min-height: 100vh; margin: 0; padding: var(--space-8) var(--space-4); background: var(--canvas); color: var(--fg); font-family: var(--font-sans); }
+    .repository-card { width: min(100%, 560px); margin: auto; overflow: hidden; border: 1px solid var(--border-muted); border-radius: var(--radius-lg); background: var(--canvas-subtle); box-shadow: var(--shadow-card); }
+    .repository-card__header { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-4); padding: var(--space-5) var(--space-5) 0; }
+    .badges { display: flex; flex-wrap: wrap; gap: var(--space-1); }
+    .badge { display: inline-flex; align-items: center; gap: 3px; padding: 1px 7px; border: 1px solid var(--border); border-radius: var(--radius-pill); color: var(--fg-muted); font-size: 11px; font-weight: 600; }
+    .badge--public { border-color: color-mix(in srgb, var(--success) 36%, var(--border)); background: var(--success-muted); color: var(--success); }
+    h1 { margin: var(--space-2) 0 0; font-size: 22px; line-height: 1.3; letter-spacing: -.025em; overflow-wrap: anywhere; }
+    .icon-button { display: inline-grid; width: 34px; height: 34px; flex: 0 0 auto; place-items: center; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--canvas-subtle); color: var(--fg); transition: background var(--transition), border-color var(--transition); }
+    .icon-button:hover { border-color: var(--fg-subtle); background: var(--canvas-inset); }
+    .repository-card__description { min-height: 48px; margin: var(--space-4) var(--space-5) 0; color: var(--fg-muted); line-height: 1.55; word-break: keep-all; }
+    .group-list { display: grid; gap: var(--space-2); margin: var(--space-3) var(--space-5) 0; }
+    .group-block { padding: 0 0 var(--space-2); border-bottom: 1px solid var(--border-muted); }
+    .group-block--frontend { --group-fg: var(--category-frontend-fg); --group-border: var(--category-frontend-border); --group-muted: var(--category-frontend-muted); }
+    .group-block--api-integration { --group-fg: var(--category-api-integration-fg); --group-border: var(--category-api-integration-border); --group-muted: var(--category-api-integration-muted); }
+    .group-block--service-domain { --group-fg: var(--category-service-domain-fg); --group-border: var(--category-service-domain-border); --group-muted: var(--category-service-domain-muted); }
+    .group-heading { display: flex; align-items: center; gap: var(--space-2); min-height: 32px; }
+    .group-chip { padding: 3px 9px; border: 1px solid var(--group-border); border-radius: var(--radius-pill); background: var(--group-muted); color: var(--group-fg); font: inherit; font-size: 12px; font-weight: 700; cursor: pointer; }
+    .group-chip:hover { text-decoration: underline; }
+    .group-summary { display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: transparent; color: var(--group-fg); font: inherit; font-size: 12px; cursor: pointer; }
+    .group-summary svg { width: 12px; height: 12px; transform: rotate(180deg); }
+    .group-children { display: flex; flex-wrap: wrap; gap: var(--space-1); margin-top: var(--space-1); padding: var(--space-2); border: 1px solid var(--group-border); border-left-color: var(--group-fg); border-radius: var(--radius-md); background: var(--group-muted); }
+    .group-children .group-chip { background: transparent; }
+    .icon-button:focus-visible, .group-chip:focus-visible, .group-summary:focus-visible { outline: 0; box-shadow: 0 0 0 3px color-mix(in srgb, var(--focus) 20%, transparent); }
+    .repository-meta { display: flex; flex-wrap: wrap; gap: var(--space-3); margin: var(--space-4) var(--space-5) 0; color: var(--fg-muted); font-size: 12px; }
+    .repository-meta span { display: inline-flex; align-items: center; gap: 4px; }
+    .repository-meta svg { width: 15px; height: 15px; }
+    .languages { margin: var(--space-4) var(--space-5) var(--space-5); }
+    .language-bar { display: flex; height: 7px; overflow: hidden; border-radius: var(--radius-pill); background: var(--canvas-inset); }
+    .language-list { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-3); margin-top: var(--space-2); color: var(--fg-muted); font-size: 11px; }
+    .language-list span { display: inline-flex; align-items: center; gap: 4px; }
+    .language-list i { width: 8px; height: 8px; border-radius: 50%; }
+    .language-list small { color: var(--fg-subtle); }
+    .readme-preview { border-top: 1px solid var(--border-muted); background: var(--canvas); }
+    .readme-preview__label { padding: var(--space-3) var(--space-5); border-bottom: 1px solid var(--border-muted); color: var(--fg-muted); font-size: 11px; font-weight: 700; letter-spacing: .08em; }
+    .markdown-body { max-height: 132px; overflow: hidden; padding: var(--space-4) var(--space-5); color: var(--fg); font-size: 13px; line-height: 1.6; }
+    .markdown-body h2 { margin: 0 0 8px; padding-bottom: 4px; border-bottom: 1px solid var(--border-muted); font-size: 16px; }
+    .markdown-body p { margin: 0; color: var(--fg-muted); }
+    @media (max-width: 767px) { body { padding: var(--space-4); } .repository-card__header, .repository-card__description, .group-list, .repository-meta, .languages { margin-right: var(--space-4); margin-left: var(--space-4); } .repository-card__header { padding-right: var(--space-4); padding-left: var(--space-4); } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <article class="repository-card" aria-label="ebook-library-frontend 레포지토리 카드 펼침 상태">
+    <header class="repository-card__header">
+      <div><div class="badges"><span class="badge badge--public">Public</span></div><h1>ebook-library-frontend</h1></div>
+      <a class="icon-button" href="https://github.com/Rustapex/ebook-library-frontend" aria-label="ebook-library-frontend GitHub에서 열기"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 2h4v4M14 2 8 8M13 9v4a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </header>
+    <p class="repository-card__description">개인적으로 고도화하는 전자책 대여 플랫폼 React 프론트엔드입니다. 화면·구조 개선과 GitHub Pages 기반 정적 포트폴리오 배포를 진행합니다.</p>
+
+    <!-- 펼침 상태: 각 상위 그룹과 자기 하위 그룹만 같은 색 컨테이너에 배치한다. -->
+    <section class="group-list" aria-label="그룹">
+      <div class="group-block group-block--frontend"><div class="group-heading"><button class="group-chip" type="button">#프론트엔드</button><button class="group-summary" type="button" aria-expanded="true"><svg viewBox="0 0 16 16" fill="currentColor"><path d="m4 6 4 4 4-4z"/></svg>세부 그룹 5개</button></div><div class="group-children" aria-label="프론트엔드 세부 그룹"><button class="group-chip" type="button">#React</button><button class="group-chip" type="button">#Vite</button><button class="group-chip" type="button">#TypeScript</button><button class="group-chip" type="button">#Axios</button><button class="group-chip" type="button">#React Router</button></div></div>
+      <div class="group-block group-block--api-integration"><div class="group-heading"><button class="group-chip" type="button">#API·연동</button><button class="group-summary" type="button" aria-expanded="true"><svg viewBox="0 0 16 16" fill="currentColor"><path d="m4 6 4 4 4-4z"/></svg>세부 그룹 1개</button></div><div class="group-children" aria-label="API 연동 세부 그룹"><button class="group-chip" type="button">#REST API</button></div></div>
+      <div class="group-block group-block--service-domain"><div class="group-heading"><button class="group-chip" type="button">#서비스 도메인</button><button class="group-summary" type="button" aria-expanded="true"><svg viewBox="0 0 16 16" fill="currentColor"><path d="m4 6 4 4 4-4z"/></svg>세부 그룹 1개</button></div><div class="group-children" aria-label="서비스 도메인 세부 그룹"><button class="group-chip" type="button">#전자책 대여</button></div></div>
+    </section>
+
+    <div class="repository-meta" aria-label="저장소 메타데이터"><span><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m8 1.5 2 4 4.5.7-3.25 3.15.77 4.45L8 11.72l-4.02 2.1.77-4.45L1.5 6.2 6 5.5l2-4Z" stroke="currentColor" stroke-width="1.2"/></svg>0</span><span><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="4" cy="3" r="1.5" stroke="currentColor"/><circle cx="12" cy="13" r="1.5" stroke="currentColor"/><circle cx="4" cy="13" r="1.5" stroke="currentColor"/><path d="M4 4.5v7M5.5 3h3a3 3 0 0 1 3 3v5.5" stroke="currentColor" stroke-width="1.2"/></svg>0</span><span><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="4" cy="3" r="1.5" stroke="currentColor"/><circle cx="12" cy="13" r="1.5" stroke="currentColor"/><circle cx="4" cy="13" r="1.5" stroke="currentColor"/><path d="M4 4.5v7M5.5 3h3a3 3 0 0 1 3 3v5.5" stroke="currentColor" stroke-width="1.2"/></svg>브랜치 3</span><span>수정 2026년 8월 3일</span></div>
+    <div class="languages"><div class="language-bar" aria-hidden="true"><span style="width:77.2%;background:#3178c6"></span><span style="width:22.6%;background:#663399"></span><span style="width:.1%;background:#e34c26"></span><span style="width:.1%;background:#f1e05a"></span></div><div class="language-list"><span><i style="background:#3178c6"></i>TypeScript <small>77.2%</small></span><span><i style="background:#663399"></i>CSS <small>22.6%</small></span><span><i style="background:#e34c26"></i>HTML <small>0.1%</small></span><span><i style="background:#f1e05a"></i>JavaScript <small>0.1%</small></span></div></div>
+    <section class="readme-preview"><div class="readme-preview__label">README</div><div class="markdown-body"><h2>ebook-library-frontend</h2><p>전자책 대여 플랫폼의 사용자용 프론트엔드입니다.</p></div></section>
+  </article>
+</body>
+</html>

@@ -38,6 +38,30 @@
   --danger-muted: #ffebe9;
   --focus: #0969da;
   --header-glow: rgb(9 105 218 / 8%);
+  --category-frontend-fg: #0969da;
+  --category-frontend-border: #54aeff;
+  --category-frontend-muted: #ddf4ff;
+  --category-backend-fg: #0f766e;
+  --category-backend-border: #2dd4bf;
+  --category-backend-muted: #ccfbf1;
+  --category-database-fg: #0f7490;
+  --category-database-border: #22d3ee;
+  --category-database-muted: #cffafe;
+  --category-cloud-devops-fg: #bc4c00;
+  --category-cloud-devops-border: #e16f24;
+  --category-cloud-devops-muted: #fff1e5;
+  --category-api-integration-fg: #8250df;
+  --category-api-integration-border: #a475f9;
+  --category-api-integration-muted: #fbefff;
+  --category-desktop-fg: #cf222e;
+  --category-desktop-border: #ff8182;
+  --category-desktop-muted: #ffebe9;
+  --category-algorithm-fg: #7d4e00;
+  --category-algorithm-border: #d4a72c;
+  --category-algorithm-muted: #fff8c5;
+  --category-service-domain-fg: #9e1c6f;
+  --category-service-domain-border: #f778ba;
+  --category-service-domain-muted: #ffeff7;
 }
 
 :root[data-theme='dark'] {
@@ -58,4 +82,28 @@
   --focus: #1f6feb;
   --header-glow: rgb(31 111 235 / 13%);
   --shadow-card: 0 0 0 1px rgb(240 246 252 / 2%), 0 12px 28px rgb(0 0 0 / 24%);
+  --category-frontend-fg: #58a6ff;
+  --category-frontend-border: #1f6feb;
+  --category-frontend-muted: #121d2f;
+  --category-backend-fg: #2dd4bf;
+  --category-backend-border: #0f766e;
+  --category-backend-muted: #0f2d2b;
+  --category-database-fg: #67e8f9;
+  --category-database-border: #0891b2;
+  --category-database-muted: #083344;
+  --category-cloud-devops-fg: #f0883e;
+  --category-cloud-devops-border: #db6d28;
+  --category-cloud-devops-muted: #3b1d0d;
+  --category-api-integration-fg: #d2a8ff;
+  --category-api-integration-border: #8957e5;
+  --category-api-integration-muted: #231942;
+  --category-desktop-fg: #ff7b72;
+  --category-desktop-border: #f85149;
+  --category-desktop-muted: #3b1219;
+  --category-algorithm-fg: #e3b341;
+  --category-algorithm-border: #bb8009;
+  --category-algorithm-muted: #2e2209;
+  --category-service-domain-fg: #f778ba;
+  --category-service-domain-border: #db61a2;
+  --category-service-domain-muted: #3b1227;
 }

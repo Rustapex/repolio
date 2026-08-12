@@ -3,6 +3,10 @@ export interface RepositoryGroup {
   label: string
 }
 
+export interface RepositoryGroupCategoryItem extends RepositoryGroup {
+  groups: RepositoryGroup[]
+}
+
 export interface RepositoryGroupDefinition {
   label: string
 }
@@ -47,7 +51,7 @@ export interface Repository {
   readme: string | null
   license: string | null
   groups?: RepositoryGroup[]
-  categories?: RepositoryGroup[]
+  categories?: RepositoryGroupCategoryItem[]
 }
 
 export interface RepositoryCatalog {

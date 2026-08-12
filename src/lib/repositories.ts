@@ -2,6 +2,7 @@ import type {
   Repository,
   RepositoryFilters,
   RepositoryGroup,
+  RepositoryGroupCategoryItem,
   RepositoryGroupCatalog,
 } from '../types/repository'
 
@@ -23,8 +24,19 @@ export function attachGroups(
       .filter((group): group is RepositoryGroup => Boolean(group))
       .sort(compareGroups)
     const categories = Object.entries(groupCatalog.categories)
-      .filter(([, category]) => category.groups.some(groupId => groupIds.includes(groupId)))
-      .map(([id, category]) => ({id, label: category.label}))
+      .map(([id, category]) => {
+        const categoryGroups = category.groups
+          .filter(groupId => groupIds.includes(groupId))
+          .map(groupId => {
+            const group = groupCatalog.groups[groupId]
+            return group ? {id: groupId, label: group.label} : undefined
+          })
+          .filter((group): group is RepositoryGroup => Boolean(group))
+          .sort(compareGroups)
+
+        return {id, label: category.label, groups: categoryGroups}
+      })
+      .filter((category): category is RepositoryGroupCategoryItem => category.groups.length > 0)
       .sort(compareGroups)
 
     return {...repository, groups, categories}

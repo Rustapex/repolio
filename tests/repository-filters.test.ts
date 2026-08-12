@@ -50,6 +50,19 @@ describe('attachGroups', () => {
     const [result] = attachGroups([repository()], groupCatalog({alpha: ['react', 'react']}))
     expect(result.groups?.map(group => group.id)).toEqual(['react'])
     expect(result.categories?.map(category => category.id)).toEqual(['frontend'])
+    expect(result.categories?.[0].groups.map(group => group.id)).toEqual(['react'])
+  })
+
+  it('상위 그룹마다 소속된 하위 그룹만 별도로 만든다', () => {
+    const [result] = attachGroups([repository()], groupCatalog({alpha: ['react', 'spring-boot']}))
+
+    expect(result.categories?.map(category => ({
+      id: category.id,
+      groups: category.groups.map(group => group.id),
+    }))).toEqual([
+      {id: 'backend', groups: ['spring-boot']},
+      {id: 'frontend', groups: ['react']},
+    ])
   })
 
   it('그룹 설정이 없는 저장소도 빈 배열로 유지한다', () => {
